@@ -118,16 +118,16 @@ body{
 .mobile-show{
   display: none !important;
 }
-.ads-section{
+.banner-section{
   position: relative;
 }
-.ads-logo{
+.banner-logo{
   position: absolute;
   height: 60%;
   bottom: 20px;
   left: 20px;
 }
-.ads-label{
+.banner-label{
   position: absolute;
   font-family: Poppins-Semibold;
   font-size: 12px;
@@ -268,6 +268,9 @@ span.inner-circle{
   visibility: visible;
   transition: all ease 0.5s;
 }
+.product-info-wrapper .btn:disabled {
+  opacity: 1;
+}
 .product-option{
   width: calc(100% - 10px);
   margin-left: 5px;
@@ -311,8 +314,23 @@ span.inner-circle{
   font-size: 15px;
   margin-bottom: 5px;
 }
-.size-option{
+.item-wrapper {
+  font-size: 12px;
+  height: 2.5em;
   width: 18%;
+}
+.item-wrapper--color {
+  width: 30%;
+  margin-right: 5%;
+  margin-bottom: 10px;
+}
+
+.item-wrapper--color:nth-child(3n) {
+  margin-right: 0;
+}
+
+.size-option, .color-option{
+  width: 100%;
   background: #F7F5EA;
   border-radius: 5px;
   font-size: 12px;
@@ -324,40 +342,37 @@ span.inner-circle{
 .variant-item-wrapper{
   flex-wrap: wrap;
 }
-.color-option.active, .size-option.active{
+.item-wrapper input[type=radio] {
+  font-size: 0;
+  line-height: 0;
+}
+.item-wrapper input[type=radio]:checked + label{
   background: #676456;
   transition: all ease 0.5s;
 }
-.color-option{
-  width: 25%;
-  background: #F7F5EA;
-  border-radius: 5px;
-  font-size: 12px;
-  cursor: pointer;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 6px;
-  transition: all ease 0.5s;
+.item-wrapper label {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .add-cart-btn{
   font-size: 20px;
   font-family: Poppins-Semibold;
   width: 100%;
-  background: #F7F5EA;
-  color: #3a3a3a;
+  background: #BA3D28;
+  color: #f7f5ea;
   padding: 15px 15px;
   border-radius: 0;
   border-top: 2px solid #F7F5EA;
   border-bottom: 2px solid #F7F5EA;
   transition: all ease 0.5s;
-
-  cursor: not-allowed !important;
+  cursor: pointer
 }
-.add-cart-btn.active{
-  color: #f7f5ea;
-  background: #BA3D28;
+
+.add-cart-btn:disabled{
+  color: #3a3a3a;
+  background: #F7F5EA;
   transition: all ease 0.5s;
-  cursor: pointer !important;
 }
 .add-cart-btn img{
   width: 20px;
@@ -732,7 +747,7 @@ span.inner-circle{
   .timer-label {
     font-size: 18px;
   }
-  .ads-section{
+  .banner-section{
     display: none;
   }
   .product-section{

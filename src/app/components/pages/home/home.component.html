@@ -1,1 +1,114 @@
-<p>home works!</p>
+<section class="body-content" *ngIf="isStreaming">
+  <div class="container" style="position: relative;">
+    <div class="row">
+      <div class="col-lg-6 col-md-7 video-section">
+        <div class="inner">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CmzujB41vaM?rel=0"
+                    allowfullscreen></iframe>
+          </div>
+          <div class="hello"></div>
+          <div class="banner-section mt-3">
+            <img src="/assets/images/stage-banner-2.png" class="w-100">
+            <img src="/assets/images/logo.png" class="banner-logo">
+            <div class="banner-label">MIRA LA COLECCIÓN COMPLETA</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-5 product-section">
+        <div class="inner">
+          <span class="hot-spot spot-1" (click)="openDetail(1)"><span class="inner-circle"></span></span>
+          <span class="hot-spot spot-2" (click)="openDetail(2)"><span class="inner-circle"></span></span>
+          <span class="hot-spot spot-3" (click)="openDetail(3)"><span class="inner-circle"></span></span>
+          <div class="product-info-wrapper show" *ngIf="detail">
+            <div class="product-option" [formGroup]="form">
+              <h3 class="option-title">Kimono Básico {{id}}<br><small>Arkitect</small></h3>
+              <h2 class="option-price mb-0">$99.990</h2>
+              <p class="variant-title">Elige tu talla</p>
+              <div class="variant-item-wrapper size d-flex justify-content-between">
+                <div class="text-center item-wrapper"
+                     *ngFor="let size of sizes">
+                  <input class="d-none" type="radio"
+                         formControlName="size" name="size"
+                         [value]="size" [id]="size">
+                  <label class="mb-0 size-option" [for]="size">{{size | uppercase}}</label>
+                </div>
+              </div>
+              <p class="variant-title">Color</p>
+              <div class="variant-item-wrapper color d-flex">
+                <div class="item-wrapper item-wrapper--color text-center"
+                     *ngFor="let color of colors">
+                  <input class="d-none h-0" type="radio"
+                         name="color" formControlName="color"
+                         [value]="color" [id]="color">
+                  <label class="mb-0 color-option" [for]="color">{{color | titlecase}}</label>
+                </div>
+              </div>
+            </div>
+            <button class="add-cart-btn btn" [class.active]="form.valid"
+                    (click)="addProduct()" [disabled]="!form.valid">
+              AGREGAR A LISTA <img src="/assets/images/heart-outline.png">
+              <img src="/assets/images/heart-white.png" class="active">
+            </button>
+          </div>
+          <div class="product-title-wrapper show" *ngIf="added">
+            <h3 class="option-title">Kimono Básico<br><small>Arkitect</small></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 cart-section">
+        <div class="inner">
+          <div class="cart-header d-flex align-items-center justify-content-between">
+            <h3>LISTA DE DESEOS</h3>
+            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">2</span></div>
+          </div>
+          <div class="cart-item-collapse">
+            <div class="cart-item-wrapper">
+              <div class="cart-item d-flex justify-content-between align-items-center">
+                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
+                <div class="cart-item-price">$99.990</div>
+                <img class="cart-item-clear" src="/assets/images/recycle.png">
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center">
+                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
+                <div class="cart-item-price">$99.990</div>
+                <img class="cart-item-clear" src="/assets/images/recycle.png">
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center empty-cart-item">
+
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center">
+
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center">
+
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center">
+
+              </div>
+              <div class="cart-item d-flex justify-content-between align-items-center">
+
+              </div>
+            </div>
+            <button class="compare-btn btn">COMPRAR</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body-content home" *ngIf="!isStreaming">
+  <div class="container home-body-content text-center">
+    <img src="/assets/images/bg-text.png" class="body-bg-text desktop-show">
+    <img src="/assets/images/mobile-bg-text.png" class="body-bg-text mobile-show">
+    <img src="/assets/images/home-image.png" class="main-home-img desktop-show">
+    <img src="/assets/images/mobile-home-image.png" class="main-home-img mobile-show">
+    <div class="counter-down">
+      <div class="counter-inner"><div id="hours"></div><span class="timer-label">HORAS</span></div>
+      <div class="counter-inner"><div id="minutes"></div><span class="timer-label">MINUTOS</span></div>
+      <div class="counter-inner"><div id="seconds"></div><span class="timer-label">SEGUNDOS</span></div>
+    </div>
+  </div>
+</section>
