@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~
+/usr/bin/forever restart /home/ubuntu/colombiamoda-backend/
