@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p /home/ubuntu/colombiamoda-backend/client
+cp -r /tmp/colombiamoda-frontend/dist/colombiamoda-frontend/* /home/ubuntu/colombiamoda-backend/client/
