@@ -4,10 +4,13 @@
       <div class="col-lg-6 col-md-7 video-section">
         <div class="inner">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CmzujB41vaM?rel=0"
-                    allowfullscreen></iframe>
+            <app-vjs-player class="embed-responsive-item"
+                            *ngIf="videoOptions"
+                            [options]="videoOptions"
+                            (videoInfo)="getVideoInfo($event)"
+                            (ready)="videoReady($event)"
+            ></app-vjs-player>
           </div>
-          <div class="hello"></div>
           <div class="banner-section mt-3">
             <img src="/assets/images/stage-banner-2.png" class="w-100">
             <img src="/assets/images/logo.png" class="banner-logo">
@@ -17,6 +20,9 @@
       </div>
       <div class="col-lg-3 col-md-5 product-section">
         <div class="inner">
+          <img class="inner__banner"
+               [src]="currentCollection ? currentCollection.banner.url : '/assets/images/product.jpg'"
+               alt="">
           <span class="hot-spot spot-1" (click)="openDetail(1)"><span class="inner-circle"></span></span>
           <span class="hot-spot spot-2" (click)="openDetail(2)"><span class="inner-circle"></span></span>
           <span class="hot-spot spot-3" (click)="openDetail(3)"><span class="inner-circle"></span></span>
@@ -105,10 +111,10 @@
     <img src="/assets/images/mobile-bg-text.png" class="body-bg-text mobile-show">
     <img src="/assets/images/home-image.png" class="main-home-img desktop-show">
     <img src="/assets/images/mobile-home-image.png" class="main-home-img mobile-show">
-    <div class="counter-down">
-      <div class="counter-inner"><div id="hours"></div><span class="timer-label">HORAS</span></div>
-      <div class="counter-inner"><div id="minutes"></div><span class="timer-label">MINUTOS</span></div>
-      <div class="counter-inner"><div id="seconds"></div><span class="timer-label">SEGUNDOS</span></div>
+    <div class="counter-down" *ngIf="countdown">
+      <div class="counter-inner"><div id="hours">{{countdown.hours}}</div><span class="timer-label">HORAS</span></div>
+      <div class="counter-inner"><div id="minutes">{{countdown.minutes}}</div><span class="timer-label">MINUTOS</span></div>
+      <div class="counter-inner"><div id="seconds">{{countdown.seconds}}</div><span class="timer-label">SEGUNDOS</span></div>
     </div>
   </div>
 </section>

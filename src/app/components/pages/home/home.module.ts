@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {VjsPlayerComponent} from "../../shared/vjs-player/vjs-player.component";
+
 
 const routes: Routes = [
   {
@@ -13,13 +15,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    VjsPlayerComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, VjsPlayerComponent,]
 })
 export class HomeModule { }
