@@ -1,59 +1,66 @@
 /* tslint:disable */
 import {
-  Stream,
-  Media,
-  Product
+  Collection,
+  Sku
 } from '../index';
 
 declare var Object: any;
-export interface CollectionInterface {
+export interface ProductInterface {
+  "reference": string;
   "description": string;
-  "state": string;
-  "startTime": number;
+  "price": number;
+  "brand"?: string;
+  "subLine"?: string;
+  "event"?: string;
+  "state"?: string;
+  "positionX": number;
+  "positionY": number;
   "id"?: number;
-  "streamId"?: number;
   "collectionId"?: number;
   "updatedAt": Date;
   "createdAt": Date;
   "publishedAt"?: Date;
   "published": boolean;
-  stream?: Stream;
-  banner?: Media;
-  products?: Product[];
+  collection?: Collection;
+  skus?: Sku[];
 }
 
-export class Collection implements CollectionInterface {
+export class Product implements ProductInterface {
+  "reference": string;
   "description": string;
+  "price": number;
+  "brand": string;
+  "subLine": string;
+  "event": string;
   "state": string;
-  "startTime": number;
+  "positionX": number;
+  "positionY": number;
   "id": number;
-  "streamId": number;
   "collectionId": number;
   "updatedAt": Date;
   "createdAt": Date;
   "publishedAt": Date;
   "published": boolean;
-  stream: Stream;
-  banner: Media;
-  products: Product[];
-  constructor(data?: CollectionInterface) {
+  collection: Collection;
+  skus: Sku[];
+  constructor(data?: ProductInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `Collection`.
+   * i.e. `Product`.
    */
   public static getModelName() {
-    return "Collection";
+    return "Product";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of Collection for dynamic purposes.
+  * This method creates an instance of Product for dynamic purposes.
   **/
-  public static factory(data: CollectionInterface): Collection{
-    return new Collection(data);
+  public static factory(data: ProductInterface): Product{
+    return new Product(data);
   }
   /**
   * @method getModelDefinition
@@ -64,13 +71,33 @@ export class Collection implements CollectionInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'Collection',
-      plural: 'Collections',
-      path: 'Collections',
+      name: 'Product',
+      plural: 'Products',
+      path: 'Products',
       idName: 'id',
       properties: {
+        "reference": {
+          name: 'reference',
+          type: 'string'
+        },
         "description": {
           name: 'description',
+          type: 'string'
+        },
+        "price": {
+          name: 'price',
+          type: 'number'
+        },
+        "brand": {
+          name: 'brand',
+          type: 'string'
+        },
+        "subLine": {
+          name: 'subLine',
+          type: 'string'
+        },
+        "event": {
+          name: 'event',
           type: 'string'
         },
         "state": {
@@ -78,17 +105,18 @@ export class Collection implements CollectionInterface {
           type: 'string',
           default: 'created'
         },
-        "startTime": {
-          name: 'startTime',
+        "positionX": {
+          name: 'positionX',
+          type: 'number',
+          default: 0
+        },
+        "positionY": {
+          name: 'positionY',
           type: 'number',
           default: 0
         },
         "id": {
           name: 'id',
-          type: 'number'
-        },
-        "streamId": {
-          name: 'streamId',
           type: 'number'
         },
         "collectionId": {
@@ -116,29 +144,21 @@ export class Collection implements CollectionInterface {
         },
       },
       relations: {
-        stream: {
-          name: 'stream',
-          type: 'Stream',
-          model: 'Stream',
+        collection: {
+          name: 'collection',
+          type: 'Collection',
+          model: 'Collection',
           relationType: 'belongsTo',
-                  keyFrom: 'streamId',
+                  keyFrom: 'collectionId',
           keyTo: 'id'
         },
-        banner: {
-          name: 'banner',
-          type: 'Media',
-          model: 'Media',
-          relationType: 'hasOne',
-                  keyFrom: 'id',
-          keyTo: 'singleId'
-        },
-        products: {
-          name: 'products',
-          type: 'Product[]',
-          model: 'Product',
+        skus: {
+          name: 'skus',
+          type: 'Sku[]',
+          model: 'Sku',
           relationType: 'hasMany',
                   keyFrom: 'id',
-          keyTo: 'collectionId'
+          keyTo: 'productId'
         },
       }
     }

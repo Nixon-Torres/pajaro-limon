@@ -7,6 +7,8 @@ import { Media } from '../../models/Media';
 import { Conversion } from '../../models/Conversion';
 import { Stream } from '../../models/Stream';
 import { Collection } from '../../models/Collection';
+import { Product } from '../../models/Product';
+import { Sku } from '../../models/Sku';
 import { Email } from '../../models/Email';
 
 export interface Models { [name: string]: any }
@@ -22,6 +24,8 @@ export class SDKModels {
     Conversion: Conversion,
     Stream: Stream,
     Collection: Collection,
+    Product: Product,
+    Sku: Sku,
     Email: Email,
     
   };

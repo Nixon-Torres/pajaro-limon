@@ -51,6 +51,8 @@ import { MediaApi } from './services/custom/Media';
 import { ConversionApi } from './services/custom/Conversion';
 import { StreamApi } from './services/custom/Stream';
 import { CollectionApi } from './services/custom/Collection';
+import { ProductApi } from './services/custom/Product';
+import { SkuApi } from './services/custom/Sku';
 import { EmailApi } from './services/custom/Email';
 /**
 * @module SDKBrowserModule
@@ -87,6 +89,8 @@ export class SDKBrowserModule {
         ConversionApi,
         StreamApi,
         CollectionApi,
+        ProductApi,
+        SkuApi,
         EmailApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
