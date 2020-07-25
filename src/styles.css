@@ -548,9 +548,6 @@ span.inner-circle{
   .cart-item-price {
     padding: 2px 5px;
   }
-  .cart-item-wrapper > div:last-child, .cart-item-wrapper > div:nth-last-child(2){
-    display: none !important;
-  }
   .making-text-1 h3 {
     font-size: 20px;
     max-width: 100%;

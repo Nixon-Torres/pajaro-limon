@@ -23,13 +23,17 @@
           <img class="inner__banner"
                [src]="currentCollection ? currentCollection.banner.url : '/assets/images/product.jpg'"
                alt="">
-          <span class="hot-spot spot-1" (click)="openDetail(1)"><span class="inner-circle"></span></span>
-          <span class="hot-spot spot-2" (click)="openDetail(2)"><span class="inner-circle"></span></span>
-          <span class="hot-spot spot-3" (click)="openDetail(3)"><span class="inner-circle"></span></span>
+          <span class="hot-spot"
+                *ngFor="let product of products"
+                (click)="openDetail(product)"
+                [ngStyle]="getPosition(product)">
+            <span class="inner-circle"></span>
+          </span>
           <div class="product-info-wrapper show" *ngIf="detail">
             <div class="product-option" [formGroup]="form">
-              <h3 class="option-title">Kimono Básico {{id}}<br><small>Arkitect</small></h3>
-              <h2 class="option-price mb-0">$99.990</h2>
+              <h3 class="option-title">{{currentProduct.description}}<br>
+                <small>{{currentProduct.brand}}</small></h3>
+              <h2 class="option-price mb-0">${{currentProduct.price}}</h2>
               <p class="variant-title">Elige tu talla</p>
               <div class="variant-item-wrapper size d-flex justify-content-between">
                 <div class="text-center item-wrapper"
@@ -58,7 +62,8 @@
             </button>
           </div>
           <div class="product-title-wrapper show" *ngIf="added">
-            <h3 class="option-title">Kimono Básico<br><small>Arkitect</small></h3>
+            <h3 class="option-title">{{currentProduct.description}}<br>
+              <small>{{currentProduct.brand}}</small></h3>
           </div>
         </div>
       </div>
@@ -66,34 +71,18 @@
         <div class="inner">
           <div class="cart-header d-flex align-items-center justify-content-between">
             <h3>LISTA DE DESEOS</h3>
-            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">2</span></div>
+            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">{{wishListCount}}</span></div>
           </div>
           <div class="cart-item-collapse">
             <div class="cart-item-wrapper">
-              <div class="cart-item d-flex justify-content-between align-items-center">
-                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
-                <div class="cart-item-price">$99.990</div>
-                <img class="cart-item-clear" src="/assets/images/recycle.png">
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
-                <div class="cart-item-price">$99.990</div>
-                <img class="cart-item-clear" src="/assets/images/recycle.png">
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center empty-cart-item">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
+              <div class="cart-item d-flex justify-content-between align-items-center"
+                   *ngFor="let item of wishList"
+              >
+                <div class="cart-item-title">{{item.description}}<br><small>{{item?.brand}}</small></div>
+                <div class="cart-item-price" *ngIf="item?.price">${{item?.price}}</div>
+                <img class="cart-item-clear"
+                     (click)="deleteItem(item)"
+                     *ngIf="item.id" src="/assets/images/recycle.png">
               </div>
             </div>
             <button class="compare-btn btn">COMPRAR</button>

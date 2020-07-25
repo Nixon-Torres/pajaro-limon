@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { interval, Observable} from "rxjs";
-import { map, takeWhile, throttleTime} from "rxjs/operators";
-import { StreamApi} from "../../../shared/sdk/services/custom";
-import {Collection, LoopBackFilter, Stream} from "../../../shared/sdk/models";
+import {fromEvent, interval, Observable} from "rxjs";
+import {first, map, takeWhile, throttleTime} from "rxjs/operators";
+import {StreamApi} from "../../../shared/sdk/services/custom";
+import {Collection, LoopBackFilter, Product, Sku, Stream} from "../../../shared/sdk/models";
 
 @Component({
   selector: 'app-home',
@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
   public collections: Collection[];
   public currentCollection: Collection;
   public videoInfo$;
+  public products: Product[];
+  public currentProduct: Product;
+  public wishList: unknown[] | Product[] = ['', '', '', '', ''];
+  public wishListCount: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,8 +44,6 @@ export class HomeComponent implements OnInit {
     this.added = false;
     this.id = '';
     this.initForm();
-    this.sizes = ['xs', 's', 'm', 'l', 'xl'];
-    this.colors = ['blanco', 'negro', 'azul', 'café', 'amarillo', 'blanco2'];
     this.currentDate = this.getDate();
     this.getStreams();
   }
@@ -57,11 +59,16 @@ export class HomeComponent implements OnInit {
           }
           return val > collection.startTime;
         });
+      this.products = this.currentCollection ?
+        this.currentCollection.products
+          .map(product => ({...product, description: product.description.split(' ')[0]})) : [];
     });
   }
 
   public videoReady(event) {
-    this.isPlaying();
+    if (event && this.isStreaming) {
+      this.isPlaying();
+    }
   }
 
   private setVideoOptions(video) {
@@ -79,14 +86,24 @@ export class HomeComponent implements OnInit {
 
   private getStreams() {
     const filter: LoopBackFilter = {
-      order: 'startDate ASC',
+      order: 'startTime ASC',
       include: [
         {
           relation: 'video',
         }, {
           relation: 'collections',
           scope: {
-            include: 'banner',
+            order: 'startTime ASC',
+            include: [
+              {
+                relation: 'banner'
+              }, {
+                relation: 'products',
+                scope: {
+                  include: 'skus'
+                }
+              }
+            ],
           }
         }
       ],
@@ -98,9 +115,12 @@ export class HomeComponent implements OnInit {
       ).subscribe(stream => {
       this.stream = stream;
       this.videoOptions = this.setVideoOptions(this.stream.video);
-      const startDate = new Date(this.stream.startDate).getTime()
-      this.setIsStreaming(startDate, this.currentDate);
-      this.collections = this.stream.collections;
+      const startDate = new Date(this.stream.startTime).getTime();
+      const endDate = new Date(this.stream.endTime).getTime();
+      if (this.currentDate < endDate) {
+        this.setIsStreaming(startDate, this.currentDate);
+        this.collections = this.stream.collections;
+      }
     });
   }
 
@@ -123,8 +143,8 @@ export class HomeComponent implements OnInit {
   }
 
   private isPlaying() {
-    const endDate = new Date(this.stream.endDate).getTime();
-    const playingDate = new Date().getTime();
+    const endDate = new Date(this.stream.endTime).getTime();
+    const playingDate = this.getDate();
     this.setCountdown(endDate, playingDate)
       .subscribe({
         next: (val) => val,
@@ -165,15 +185,67 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public openDetail(id): void {
+  public openDetail(product): void {
+    this.currentProduct = product;
+    this.sizes = this.currentProduct.skus.map((val) => val.size);
+    this.colors = this.currentProduct.skus.reduce((acc: string[], curr: Sku): string[] => {
+      if (!acc.find((color: string) => curr.color)) {
+        acc.push(curr.color);
+      }
+      return acc;
+    }, []);
     this.detail = true;
     this.added = false;
-    this.id = id;
+    this.listenForClose();
   }
 
-  addProduct() {
+  public getPosition(product: Product): unknown {
+    return {'left': `${product.positionX}%`, 'top': `${product.positionY}%`}
+  }
+
+  private listenForClose(): void {
+    const closeElement = document.querySelector('.inner__banner');
+    fromEvent(closeElement, 'click')
+      .pipe(
+        first(() => this.detail)
+      )
+      .subscribe({
+        next: val => this.detail = false,
+        error: err => console.log,
+        complete: () => this.form.reset()
+      })
+  }
+
+  public addProduct(): void {
+    this.addToWishList();
     this.form.reset();
     this.detail = false;
     this.added = true;
+  }
+
+  public deleteItem(id) {
+    this.wishList = this.wishList.filter(item => item !== id);
+    this.wishListCount = this.wishList.filter(val => typeof val !== 'string').length;
+  }
+
+  private getAddedSku(current: Product): Product {
+    const selection = this.form.value
+    return {
+      ...current,
+      skus: current.skus
+        .filter(({size, color}) =>
+          (size === selection.size && color === selection.color))
+    }
+  }
+
+  private addToWishList(): void {
+    const current = this.getAddedSku(this.currentProduct);
+    const index = this.wishList.findIndex((product) => typeof product === 'string');
+    if (index !== -1) {
+      this.wishList.splice(index, 1, current);
+    } else {
+      this.wishList.push(current);
+    }
+    this.wishListCount = this.wishList.filter(val => typeof val !== 'string').length;
   }
 }
