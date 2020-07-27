@@ -21,6 +21,10 @@
   font-weight: 700;
   src: url(/assets/fonts/Poppins-Bold.otf);
 }
+:root {
+  --bottom: 15px;
+  --slideUpTime: .5s;
+}
 
 .light-font{
   font-family: Poppins-Light;
@@ -53,12 +57,6 @@ body{
 .bottom-header-content{
   padding: 10px 50px;
 }
-.bottom-left-logo{
-
-}
-.bottom-right-logo{
-
-}
 .body-content.home{
   /*min-height: calc(100vh - 198px);*/
   overflow-y: hidden;
@@ -67,6 +65,8 @@ body{
   padding: 30px 0 30px;
   position: relative;
   background: url("/assets/images/bg.png") no-repeat right bottom;
+  height: 58vh;
+  box-sizing: content-box;
 }
 .home-body-content{
   height: auto;
@@ -130,6 +130,7 @@ body{
 .banner-label{
   position: absolute;
   font-family: Poppins-Semibold;
+  text-decoration: none;
   font-size: 12px;
   padding: 5px 15px;
   border-radius: 15px;
@@ -138,6 +139,10 @@ body{
   border: 1px solid white;
   right: 20px;
   bottom: 20px;
+}
+.banner-label:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 .product-section .inner{
   position: relative;
@@ -158,8 +163,9 @@ body{
   background: rgba(222, 219, 207, 0.95);
 }
 .cart-header{
-  padding: 15px;
+  padding: 0 15px;
   border-bottom: 2px solid #babab9;
+  height: 12.5%;
 }
 .cart-header h3{
   font-size: 20px;
@@ -184,11 +190,16 @@ body{
   top: -5px;
   right: -5px;
 }
+.cart-item-collapse {
+  overflow: auto;
+  height: 74%;
+}
 .cart-item-wrapper{
-  padding: 15px;
+  padding: 15px 15px 10px 15px;
 }
 .cart-item-clear{
   width: 20px;
+  cursor: pointer;
 }
 .cart-item-title{
   font-size: 14px;
@@ -213,17 +224,20 @@ body{
   width: 16px;
 }
 .compare-btn{
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  left: 0;
+  height: 13.5%;
   border: 2px solid white;
   background: #BDBBB0;
-  padding: 15px;
   font-size: 20px;
   color: #3a3a3a;
   font-family: Poppins-Semibold;
   border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn.compare-btn:hover {
+   color: #3a3a3a;
 }
 .btn:focus, .btn.focus {
   outline: 0;
@@ -268,6 +282,7 @@ span.inner-circle{
   opacity: 0;
   visibility: hidden;
   transition: all ease 0.5s;
+  animation: slideUp var(--slideUpTime) ease;
 }
 .show.product-info-wrapper{
   bottom: 0;
@@ -298,6 +313,12 @@ span.inner-circle{
   transition: all ease 0.5s;
   opacity: 0;
   visibility: hidden;
+  animation-name: slideUp, slideDown;
+  animation-duration: var(--slideUpTime);
+  animation-timing-function: ease;
+  animation-delay: 0s, 1.5s;
+  animation-fill-mode: none, forwards;
+
 }
 .product-title-wrapper.show{
   transition: all ease 0.5s;
@@ -325,11 +346,11 @@ span.inner-circle{
   font-size: 12px;
   height: 2.5em;
   width: 18%;
+  margin-bottom: 10px;
 }
 .item-wrapper--color {
   width: 30%;
   margin-right: 5%;
-  margin-bottom: 10px;
 }
 
 .item-wrapper--color:nth-child(3n) {
@@ -548,9 +569,6 @@ span.inner-circle{
   .cart-item-price {
     padding: 2px 5px;
   }
-  .cart-item-wrapper > div:last-child, .cart-item-wrapper > div:nth-last-child(2){
-    display: none !important;
-  }
   .making-text-1 h3 {
     font-size: 20px;
     max-width: 100%;
@@ -627,9 +645,6 @@ span.inner-circle{
   }
   .cart-item {
     min-height: 45px;
-  }
-  .cart-item-wrapper > div:nth-last-child(3){
-    display: none !important;
   }
   .making-text-1 h3, .making-text-4 h3{
     margin-bottom: 15px;
@@ -846,4 +861,14 @@ span.inner-circle{
     background: url(/assets/images/sala-bg-mobile.png) no-repeat center bottom;
     background-size: 100% auto;
   }
+}
+
+@keyframes slideUp {
+  from { bottom: -15px; opacity: 0 }
+  to { bottom: 0; opacity: 1 }
+}
+
+@keyframes slideDown {
+  from { bottom: 0; opacity: 1}
+  to { bottom: -15px; opacity: 0}
 }
