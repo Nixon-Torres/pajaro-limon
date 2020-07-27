@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   public currentProduct: Product;
   public wishList: unknown[] | Product[] = ['', '', '', '', ''];
   public wishListCount: number = 0;
+  public checkout: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -225,7 +226,7 @@ export class HomeComponent implements OnInit {
 
   public deleteItem(id) {
     this.wishList = this.wishList.filter(item => item !== id);
-    this.wishListCount = this.wishList.filter(val => typeof val !== 'string').length;
+    this.updateWishListCount();
   }
 
   private getAddedSku(current: Product): Product {
@@ -246,6 +247,23 @@ export class HomeComponent implements OnInit {
     } else {
       this.wishList.push(current);
     }
+    this.updateWishListCount();
+  }
+
+  private updateWishListCount() {
     this.wishListCount = this.wishList.filter(val => typeof val !== 'string').length;
+    this.checkout = this.getUrl();
+  }
+
+  private getUrl(): string {
+    const BASE_URL = 'https://www.exito.com/checkout/cart/add/?';
+    const END_URL = 'sc=1&utm_source=webview&utm_medium=referral&utm_campaign=colombiamoda';
+    let products = '';
+    this.wishList
+      .filter((product: Product) => typeof product !== 'string')
+      .forEach((product: Product) => {
+        products += `sku=${product.skus[0].plu}&qty=1&seller=1&`;
+      });
+    return BASE_URL+products+END_URL;
   }
 }

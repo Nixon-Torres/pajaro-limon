@@ -189,6 +189,7 @@ body{
 }
 .cart-item-clear{
   width: 20px;
+  cursor: pointer;
 }
 .cart-item-title{
   font-size: 14px;
@@ -224,6 +225,9 @@ body{
   color: #3a3a3a;
   font-family: Poppins-Semibold;
   border-radius: 0;
+}
+.btn.compare-btn:hover {
+   color: #3a3a3a;
 }
 .btn:focus, .btn.focus {
   outline: 0;
@@ -325,11 +329,11 @@ span.inner-circle{
   font-size: 12px;
   height: 2.5em;
   width: 18%;
+  margin-bottom: 10px;
 }
 .item-wrapper--color {
   width: 30%;
   margin-right: 5%;
-  margin-bottom: 10px;
 }
 
 .item-wrapper--color:nth-child(3n) {

@@ -85,7 +85,8 @@
                      *ngIf="item.id" src="/assets/images/recycle.png">
               </div>
             </div>
-            <button class="compare-btn btn">COMPRAR</button>
+            <a class="compare-btn btn" [href]="checkout"
+               [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
           </div>
 
         </div>
