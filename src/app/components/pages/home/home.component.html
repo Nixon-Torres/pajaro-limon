@@ -1,6 +1,6 @@
 <section class="body-content" *ngIf="isStreaming">
-  <div class="container" style="position: relative;">
-    <div class="row">
+  <div class="container h-100" style="position: relative;">
+    <div class="row h-100">
       <div class="col-lg-6 col-md-7 video-section">
         <div class="inner">
           <div class="embed-responsive embed-responsive-16by9">
@@ -14,7 +14,8 @@
           <div class="banner-section mt-3">
             <img src="/assets/images/stage-banner-2.png" class="w-100">
             <img src="/assets/images/logo.png" class="banner-logo">
-            <div class="banner-label">MIRA LA COLECCIÓN COMPLETA</div>
+            <a href="https://www.exito.com/arkitect-beatrizcamacho"
+               target="_blank" class="banner-label">MIRA LA COLECCIÓN COMPLETA</a>
           </div>
         </div>
       </div>
@@ -67,7 +68,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 cart-section">
+      <div class="col-lg-3 cart-section h-100">
         <div class="inner">
           <div class="cart-header d-flex align-items-center justify-content-between">
             <h3>LISTA DE DESEOS</h3>
@@ -85,10 +86,9 @@
                      *ngIf="item.id" src="/assets/images/recycle.png">
               </div>
             </div>
-            <a class="compare-btn btn" [href]="checkout"
-               [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
           </div>
-
+          <a class="compare-btn btn" [href]="checkout"
+             [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
         </div>
       </div>
     </div>

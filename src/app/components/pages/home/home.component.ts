@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {fromEvent, interval, Observable} from "rxjs";
+import {fromEvent, interval, Observable, timer} from "rxjs";
 import {first, map, takeWhile, throttleTime} from "rxjs/operators";
 import {StreamApi} from "../../../shared/sdk/services/custom";
 import {Collection, LoopBackFilter, Product, Sku, Stream} from "../../../shared/sdk/models";
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   public products: Product[];
   public currentProduct: Product;
   public wishList: unknown[] | Product[] = ['', '', '', '', ''];
+  public startLength = this.wishList.length;
   public wishListCount: number = 0;
   public checkout: string;
 
@@ -222,9 +223,18 @@ export class HomeComponent implements OnInit {
     this.form.reset();
     this.detail = false;
     this.added = true;
+    const title$ = timer(2500)
+      .subscribe((value) => {
+      this.added = false;
+    });
   }
 
   public deleteItem(id) {
+    if (this.wishListCount <= this.startLength) {
+      // @ts-ignore
+      //wishList can be Product[] or unknown[]
+      this.wishList.push('');
+    }
     this.wishList = this.wishList.filter(item => item !== id);
     this.updateWishListCount();
   }
