@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Router, RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {InspirationComponent} from "./inspiration.component";
+import {VjsPlayerModule} from "../../shared/vjs-player/vjs-player.module";
 
 const routes: Routes = [
   {
@@ -11,9 +12,12 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InspirationComponent,
+  ],
   imports: [
     CommonModule,
+    VjsPlayerModule,
     RouterModule.forChild(routes),
   ],
   exports: [RouterModule]
