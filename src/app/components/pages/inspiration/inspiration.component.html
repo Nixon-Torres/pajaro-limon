@@ -4,8 +4,8 @@
       <div class="col-lg-9 pr-lg-0">
         <div class="embed-responsive embed-responsive-16by9">
           <app-vjs-player class="embed-responsive-item"
-                          *ngIf="videoOptions"
-                          [options]="videoOptions"
+                          *ngIf="videoMain"
+                          [options]="videoMain"
           ></app-vjs-player>
         </div>
       </div>
@@ -44,7 +44,12 @@
     </div>
     <div class="row pt-0 pt-lg-3">
       <div class="col-lg-6 pr-lg-0  desktop-view">
-        <img class="w-100" src="/assets/images/making-3.png">
+        <div class="embed-responsive embed-responsive-16by9">
+          <app-vjs-player class="embed-responsive-item"
+                          *ngIf="videoFirst"
+                          [options]="videoFirst"
+          ></app-vjs-player>
+        </div>
       </div>
       <div class="col-lg-6 making-text-3 mb-3 mb-lg-0 desktop-view">
         <div class="inner d-flex align-items-center justify-content-center">
@@ -76,7 +81,12 @@
       </div>
 
       <div class="col-lg-6 desktop-view">
-        <img class="w-100" src="/assets/images/making-5.png">
+        <div class="embed-responsive embed-responsive-16by9">
+          <app-vjs-player class="embed-responsive-item"
+                          *ngIf="videoSecond"
+                          [options]="videoSecond"
+          ></app-vjs-player>
+        </div>
       </div>
     </div>
   </div>

@@ -265,6 +265,10 @@ export class HomeComponent implements OnInit {
     this.checkout = this.getUrl();
   }
 
+  redirectToCheckout () {
+    window.open(this.checkout ? this.checkout : 'https://www.exito.com/' , '_blank');
+  }
+
   private getUrl(): string {
     const BASE_URL = 'https://www.exito.com/checkout/cart/add/?';
     const END_URL = 'sc=1&utm_source=webview&utm_medium=referral&utm_campaign=colombiamoda';
