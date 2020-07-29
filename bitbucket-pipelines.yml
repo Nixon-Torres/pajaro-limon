@@ -10,7 +10,7 @@ pipelines:
             - pip install boto3 # required for codedeploy_deploy.py
             - npm install
             - npm install -g @angular/cli
-            - npm run build --allow-root
+            - npm run build -- --configuration=production --allow-root
             - chmod +x scripts/*
             - export DEPLOYMENT_GROUP_NAME=$DEPLOYMENT_GROUP_NAME
             - zip -r /tmp/artifact.zip * # package up the application for deployment
@@ -24,7 +24,7 @@ pipelines:
             - pip install boto3 # required for codedeploy_deploy.py
             - npm install
             - npm install -g @angular/cli
-            - npm run build --allow-root
+            - npm run build -- --configuration=development --allow-root
             - chmod +x scripts/*
             - export DEPLOYMENT_GROUP_NAME=$STAGE_DEPLOYMENT_GROUP_NAME
             - zip -r /tmp/artifact.zip * # package up the application for deployment
