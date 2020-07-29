@@ -33,7 +33,6 @@ export class InspirationComponent implements OnInit {
         }),
         map((resp: unknown) => ({main: resp[0][0], first: resp[1][0], second: resp[2][0]})),
       ).subscribe((resp) => {
-      console.log(resp)
       this.videoMain = this.videoConfig(resp.main);
       this.videoFirst = this.videoConfig(resp.first);
       this.videoSecond = this.videoConfig(resp.second);
