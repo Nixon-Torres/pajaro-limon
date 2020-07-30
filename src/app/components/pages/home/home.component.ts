@@ -152,10 +152,15 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-
+  // TODO Remove after finish testing hotspots
   private getDate() {
-    return new Date().getTime();
+    const tmpDate = new Date();
+    tmpDate.setHours(tmpDate.getHours() + 8);
+    return tmpDate.getTime();
   }
+  // private getDate() {
+  //   return new Date().getTime();
+  // }
 
   private setIsStreaming(start, end) {
     this.isStreaming = start < end;
