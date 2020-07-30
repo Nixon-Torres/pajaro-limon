@@ -64,7 +64,7 @@ body{
 .body-content{
   padding: 30px 0 30px;
   position: relative;
-  background: url("/assets/images/bg.png") no-repeat right bottom;
+  background: url("/assets/images/new/flor300.png") no-repeat right bottom;
 }
 .home-body-content{
   height: auto;
@@ -446,7 +446,7 @@ span.inner-circle{
   margin: 0 auto;
 }
 .body-content.making {
-  background: url(/assets/images/bg.png) no-repeat right top;
+  background: url(/assets/images/new/flor300.png) no-repeat right top;
 }
 .body-content.making>.container{
   background: url("/assets/images/making-bg.png") no-repeat center center;
@@ -508,7 +508,7 @@ span.inner-circle{
   display: block;
 }
 .body-content.sala {
-  background: url(/assets/images/bg.png) no-repeat right top;
+  background: url(/assets/images/new/flor300.png) no-repeat right top;
 }
 .body-content.sala>.container{
   background: url("/assets/images/sala-bg.png") no-repeat left bottom;
@@ -891,7 +891,7 @@ span.inner-circle{
     background: none;
   }
   .body-content.making {
-    background: url(/assets/images/bg.png) no-repeat left top;
+    background: url(/assets/images/new/flor300.png) no-repeat left top;
     background-position-x: -50px;
     padding-bottom: 0;
   }
@@ -900,7 +900,7 @@ span.inner-circle{
     background-size: 100% auto;
   }
   .body-content.sala {
-    background: url(/assets/images/bg.png) no-repeat right top;
+    background: url(/assets/images/new/flor300.png) no-repeat right top;
     background-position-x: -50px;
     padding-bottom: 0;
   }
