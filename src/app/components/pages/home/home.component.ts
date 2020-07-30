@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
           }
           return val > collection.startTime;
         });
-      this.products = this.currentCollection ?
+      this.products = this.currentCollection && this.currentCollection.products ?
         this.currentCollection.products
           .map(product => ({...product, description: product.description.split(' ')[0]})) : [];
     });
