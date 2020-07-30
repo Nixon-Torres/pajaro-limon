@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 
   private getStreams() {
     const filter: LoopBackFilter = {
-      order: 'startTime ASC',
+      order: 'startDate ASC',
       include: [
         {
           relation: 'video',
@@ -117,8 +117,8 @@ export class HomeComponent implements OnInit {
       ).subscribe(stream => {
       this.stream = stream;
       this.videoOptions = this.setVideoOptions(this.stream.video);
-      const startDate = new Date(this.stream.startTime).getTime();
-      const endDate = new Date(this.stream.endTime).getTime();
+      const startDate = new Date(this.stream.startDate).getTime();
+      const endDate = new Date(this.stream.endDate).getTime();
       if (this.currentDate < endDate) {
         this.setIsStreaming(startDate, this.currentDate);
         this.collections = this.stream.collections;
