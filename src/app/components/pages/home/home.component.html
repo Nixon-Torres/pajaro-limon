@@ -88,8 +88,11 @@
               </div>
             </div>
           </div>
-          <a class="compare-btn btn" [href]="checkout" *ngIf="cartVisible"
-             [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
+          <div *ngIf="cartVisible" class="compare-btn">
+            <p><i>La disponibilidad se validará en exito.com</i></p>
+            <a class="btn" [href]="checkout"
+               [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
+          </div>
         </div>
       </div>
     </div>
