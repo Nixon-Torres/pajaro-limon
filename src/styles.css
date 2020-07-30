@@ -828,9 +828,6 @@ span.inner-circle{
   .product-section .inner {
     position: relative;
     height: 100%;
-    /*background: url(/assets/images/product.jpg) no-repeat left center;*/
-    /*background-size: cover;*/
-    /*padding-top: 110%;*/
   }
   .body-content {
     background-size: 30%;
