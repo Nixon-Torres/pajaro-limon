@@ -289,7 +289,8 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToCheckout () {
-    window.open(this.checkout ? this.checkout : 'https://www.exito.com/' , '_blank');
+    if (this.checkout)
+      window.open(this.checkout ? this.checkout : 'https://www.exito.com/' , '_blank');
   }
 
   private getUrl(): string {
