@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   public startLength = this.wishList.length;
   public wishListCount: number = 0;
   public checkout: string;
+  public cartVisible = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -246,6 +247,8 @@ export class HomeComponent implements OnInit {
     this.form.reset();
     this.detail = false;
     this.added = true;
+
+    this.cartVisible = true;
     const title$ = timer(2500)
       .subscribe((value) => {
       this.added = false;
