@@ -98,12 +98,18 @@ export class HomeComponent implements OnInit {
             order: 'startTime ASC',
             include: [
               {
-                relation: 'banner'
-              }, {
-                relation: 'products',
+                relation: 'configs',
                 scope: {
-                  include: 'skus'
+                  include: {
+                    relation: 'product',
+                    scope: {
+                      include: 'skus'
+                    }
+                  }
                 }
+              },
+              {
+                relation: 'banner'
               }
             ],
           }
@@ -121,7 +127,19 @@ export class HomeComponent implements OnInit {
       const endDate = new Date(this.stream.endDate).getTime();
       if (this.currentDate < endDate) {
         this.setIsStreaming(startDate, this.currentDate);
-        this.collections = this.stream.collections;
+        const collections = this.stream.collections;
+        this.collections = collections.map(e => {
+          if (!e.configs) {
+            return [];
+          }
+          e.products = e.configs.map(j => {
+            const product = j.product;
+            debugger
+            product.positionX = j.positionX;
+            product.positionY = j.positionY;
+            return product;
+          });
+        });
       }
     });
   }
