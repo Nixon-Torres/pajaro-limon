@@ -234,7 +234,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getPosition(product: Product): unknown {
-    return {'left': `${product.positionX}px`, 'top': `${product.positionY}px`}
+    return {'left': `${product.positionX}%`, 'top': `${product.positionY}%`}
   }
 
   private listenForClose(): void {
