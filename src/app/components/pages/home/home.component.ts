@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
       this.currentCollection = this.collections
         .find((collection, index, array) => {
           if (array[index + 1]) {
-            return val > collection.startTime && val < array[index + 1].startTime
+            return val > collection.startTime && val < array[index + 1].startTime;
           }
           return val > collection.startTime;
         });
@@ -134,11 +134,11 @@ export class HomeComponent implements OnInit {
           }
           e.products = e.configs.map(j => {
             const product = j.product;
-            debugger
             product.positionX = j.positionX;
             product.positionY = j.positionY;
             return product;
           });
+          return e;
         });
       }
     });
@@ -220,7 +220,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getPosition(product: Product): unknown {
-    return {'left': `${product.positionX}%`, 'top': `${product.positionY}%`}
+    return {'left': `${product.positionX}px`, 'top': `${product.positionY}px`}
   }
 
   private listenForClose(): void {
