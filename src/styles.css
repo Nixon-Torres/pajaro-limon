@@ -662,6 +662,13 @@ span.inner-circle{
   }
 }
 @media (max-width: 991px){
+  .cart-section .inner {
+    height: auto;
+  }
+  .cart-item-collapse {
+    opacity: 1;
+    height: auto;
+  }
   .bottom-left-logo {
     height: 80px;
   }

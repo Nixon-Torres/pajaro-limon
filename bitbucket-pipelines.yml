@@ -15,7 +15,6 @@ pipelines:
             - export DEPLOYMENT_GROUP_NAME=$DEPLOYMENT_GROUP_NAME
             - zip -r /tmp/artifact.zip * # package up the application for deployment
             - python codedeploy_deploy.py # run the deployment script
-
     stage:
       - step:
           script:
