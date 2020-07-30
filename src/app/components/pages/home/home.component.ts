@@ -88,7 +88,6 @@ export class HomeComponent implements OnInit {
       controls: true,
       controlBar: {
         pictureInPictureToggle: false,
-        videoPlaybackQuality: true
       },
       sources: [
         {src: video.url, type: video.type}
