@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit {
   }
 
   private isPlaying() {
-    const endDate = new Date(this.stream.endTime).getTime();
+    const endDate = new Date(this.stream.endDate).getTime();
     const playingDate = this.getDate();
     this.setCountdown(endDate, playingDate)
       .subscribe({
