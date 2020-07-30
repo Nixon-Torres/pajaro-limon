@@ -1,29 +1,41 @@
 <section class="body-content" *ngIf="isStreaming">
-  <div class="container" style="position: relative;">
-    <div class="row">
+  <div class="container h-100" style="position: relative;">
+    <div class="row h-100">
       <div class="col-lg-6 col-md-7 video-section">
         <div class="inner">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CmzujB41vaM?rel=0"
-                    allowfullscreen></iframe>
+            <app-vjs-player class="embed-responsive-item"
+                            *ngIf="videoOptions"
+                            [options]="videoOptions"
+                            (videoInfo)="getVideoInfo($event)"
+                            (ready)="videoReady($event)"
+            ></app-vjs-player>
           </div>
-          <div class="hello"></div>
           <div class="banner-section mt-3">
             <img src="/assets/images/stage-banner-2.png" class="w-100">
             <img src="/assets/images/logo.png" class="banner-logo">
-            <div class="banner-label">MIRA LA COLECCIÓN COMPLETA</div>
+            <a href="https://www.exito.com/arkitect-beatrizcamacho"
+               (click)="redirectToCheckout()"
+               target="_parent" class="banner-label">MIRA LA COLECCIÓN COMPLETA</a>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-5 product-section">
         <div class="inner">
-          <span class="hot-spot spot-1" (click)="openDetail(1)"><span class="inner-circle"></span></span>
-          <span class="hot-spot spot-2" (click)="openDetail(2)"><span class="inner-circle"></span></span>
-          <span class="hot-spot spot-3" (click)="openDetail(3)"><span class="inner-circle"></span></span>
+          <img class="inner__banner"
+               [src]="currentCollection && currentCollection.banner ? currentCollection.banner.url : '/assets/images/product.jpg'"
+               alt="">
+          <span class="hot-spot"
+                *ngFor="let product of products"
+                (click)="openDetail(product)"
+                [ngStyle]="getPosition(product)">
+            <span class="inner-circle"></span>
+          </span>
           <div class="product-info-wrapper show" *ngIf="detail">
             <div class="product-option" [formGroup]="form">
-              <h3 class="option-title">Kimono Básico {{id}}<br><small>Arkitect</small></h3>
-              <h2 class="option-price mb-0">$99.990</h2>
+              <h3 class="option-title">{{currentProduct.description}}<br>
+                <small>{{currentProduct.brand}}</small></h3>
+              <h2 class="option-price mb-0">${{currentProduct.price}}</h2>
               <p class="variant-title">Elige tu talla</p>
               <div class="variant-item-wrapper size d-flex justify-content-between">
                 <div class="text-center item-wrapper"
@@ -52,47 +64,32 @@
             </button>
           </div>
           <div class="product-title-wrapper show" *ngIf="added">
-            <h3 class="option-title">Kimono Básico<br><small>Arkitect</small></h3>
+            <h3 class="option-title">{{currentProduct.description}}<br>
+              <small>{{currentProduct.brand}}</small></h3>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 cart-section">
+      <div class="col-lg-3 cart-section h-100">
         <div class="inner">
           <div class="cart-header d-flex align-items-center justify-content-between">
             <h3>LISTA DE DESEOS</h3>
-            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">2</span></div>
+            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">{{wishListCount}}</span></div>
           </div>
           <div class="cart-item-collapse">
             <div class="cart-item-wrapper">
-              <div class="cart-item d-flex justify-content-between align-items-center">
-                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
-                <div class="cart-item-price">$99.990</div>
-                <img class="cart-item-clear" src="/assets/images/recycle.png">
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-                <div class="cart-item-title">Kimono Básico<br><small>Arkitect</small></div>
-                <div class="cart-item-price">$99.990</div>
-                <img class="cart-item-clear" src="/assets/images/recycle.png">
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center empty-cart-item">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
-              </div>
-              <div class="cart-item d-flex justify-content-between align-items-center">
-
+              <div class="cart-item d-flex justify-content-between align-items-center"
+                   *ngFor="let item of wishList"
+              >
+                <div class="cart-item-title">{{item.description}}<br><small>{{item?.brand}}</small></div>
+                <div class="cart-item-price" *ngIf="item?.price">${{item?.price}}</div>
+                <img class="cart-item-clear"
+                     (click)="deleteItem(item)"
+                     *ngIf="item.id" src="/assets/images/recycle.png">
               </div>
             </div>
-            <button class="compare-btn btn">COMPRAR</button>
           </div>
-
+          <a class="compare-btn btn" [href]="checkout"
+             [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
         </div>
       </div>
     </div>
@@ -105,10 +102,10 @@
     <img src="/assets/images/mobile-bg-text.png" class="body-bg-text mobile-show">
     <img src="/assets/images/home-image.png" class="main-home-img desktop-show">
     <img src="/assets/images/mobile-home-image.png" class="main-home-img mobile-show">
-    <div class="counter-down">
-      <div class="counter-inner"><div id="hours"></div><span class="timer-label">HORAS</span></div>
-      <div class="counter-inner"><div id="minutes"></div><span class="timer-label">MINUTOS</span></div>
-      <div class="counter-inner"><div id="seconds"></div><span class="timer-label">SEGUNDOS</span></div>
+    <div class="counter-down" *ngIf="countdown">
+      <div class="counter-inner"><div id="hours">{{countdown.hours}}</div><span class="timer-label">HORAS</span></div>
+      <div class="counter-inner"><div id="minutes">{{countdown.minutes}}</div><span class="timer-label">MINUTOS</span></div>
+      <div class="counter-inner"><div id="seconds">{{countdown.seconds}}</div><span class="timer-label">SEGUNDOS</span></div>
     </div>
   </div>
 </section>
