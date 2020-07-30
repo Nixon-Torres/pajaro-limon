@@ -189,9 +189,14 @@ export class HomeComponent implements OnInit {
 
   public openDetail(product): void {
     this.currentProduct = product;
-    this.sizes = this.currentProduct.skus.map((val) => val.size);
+    this.sizes = this.currentProduct.skus.reduce((acc: string[], curr: Sku): string[] => {
+      if (!acc.find((size: string) => curr.size === size)) {
+        acc.push(curr.size);
+      }
+      return acc;
+    }, []);
     this.colors = this.currentProduct.skus.reduce((acc: string[], curr: Sku): string[] => {
-      if (!acc.find((color: string) => curr.color)) {
+      if (!acc.find((color: string) => curr.color === color)) {
         acc.push(curr.color);
       }
       return acc;
