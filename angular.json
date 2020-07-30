@@ -24,9 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
               "src/assets/css/vendor/bootstrap.min.css",
-              "src/assets/css/vendor/video-js.min.css"
+              "src/assets/css/vendor/video-js.min.css",
+              "src/styles.css"
             ],
             "scripts": []
           },

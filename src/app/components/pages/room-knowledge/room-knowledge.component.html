@@ -87,8 +87,12 @@
         </div>
       </div>
       <div class="col-lg-6 pb-3">
-        <img src="assets/images/sala-6.png" class="w-100 desktop-view">
-        <img src="assets/images/sala-9.png" class="w-100 mobile-view">
+        <div class="embed-responsive embed-responsive-16by9">
+          <app-vjs-player class="embed-responsive-item"
+                          *ngIf="videoThird"
+                          [options]="videoThird"
+          ></app-vjs-player>
+        </div>
       </div>
     </div>
   </div>

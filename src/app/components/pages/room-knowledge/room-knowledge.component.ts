@@ -17,6 +17,7 @@ export class RoomKnowledgeComponent implements OnInit {
   public videoFirst: unknown;
   public videoSecond: unknown;
   public videoThird: unknown;
+  public videoFourth: unknown;
 
   constructor(private media: MediaApi) {
   }
@@ -30,18 +31,27 @@ export class RoomKnowledgeComponent implements OnInit {
     const first$ = this.media.find(this.setFilter('room-first'));
     const second$ = this.media.find(this.setFilter('room-second'));
     const third$ = this.media.find(this.setFilter('room-third'));
+    const fourth$ = this.media.find(this.setFilter('room-fourth'));
 
-    zip(main$, first$, second$, third$)
+    zip(main$, first$, second$, third$, fourth$)
       .pipe(
         catchError( (err: AjaxError) => {
           return of([''])
         }),
-        map((resp: unknown) => ({main: resp[0][0], first: resp[1][0], second: resp[2][0], third: resp[3][0]})),
+        map((resp: unknown) => ({
+            main: resp[0][0],
+            first: resp[1][0],
+            second: resp[2][0],
+            third: resp[3][0],
+            fourth: resp[4][0]
+          })
+        ),
       ).subscribe((resp) => {
       this.videoMain = this.videoConfig(resp.main);
       this.videoFirst = this.videoConfig(resp.first);
       this.videoSecond = this.videoConfig(resp.second);
       this.videoThird = this.videoConfig(resp.third);
+      this.videoFourth = this.videoConfig(resp.fourth);
       });
   }
 
