@@ -430,12 +430,12 @@ span.inner-circle{
 }
 .making-text-1 > .inner{
   height: 100%;
-  color: #ffffff;
+  color: #e7e4d7;
   background: #B13732;
-  padding: 25px 15px;
+  padding: 20px 15px;
 }
 .making-text-1 h3{
-  font-size: 26px;
+  font-size: 18px;
   font-family: Poppins-Semibold;
   max-width: 210px;
   margin: 0 auto 20px;
@@ -456,12 +456,20 @@ span.inner-circle{
   font-size: 22px;
   font-family: Poppins-Semibold;
 }
+.making-text-2,
+.making-text-4,
+.making-text-2 .inner h2,
+.making-text-4 .inner h3,
+.making-text-4 .inner p,
+.sala-text-1,
+.sala-text-1 .inner {
+  color: #e7e4d7;
+}
 .making-text-2 .inner{
   height: 100%;
   position: relative;
   padding: 25px 15px;
   text-align: center;
-  color: #ffffff;
   background: #66645E;
 }
 .bold-font{
@@ -474,7 +482,7 @@ span.inner-circle{
   color: #66645e;
 }
 .making-text-3 h3{
-  font-size: 52px;
+  font-size: 22px;
   font-family: Poppins-Semibold;
 
 }
@@ -509,8 +517,11 @@ span.inner-circle{
 .sala-text-1 .inner{
   background: #520400;
   color: white;
-  padding: 25px 25px;
+  padding: 20px 25px;
   height: 100%;
+}
+.sala-text-1 .inner h3 {
+  font-size: 32px;
 }
 .sala-text-1 h3, .sala-text-2 h2{
   font-size: 52px;
@@ -539,7 +550,7 @@ span.inner-circle{
   opacity: 0;
   bottom: 10px;
   right: -50px;
-  background: white;
+  background: #ffffff;
   width: 44px;
   height: 44px;
   text-align: center;
@@ -557,6 +568,17 @@ span.inner-circle{
 .top-arrow img{
   width: 20px;
   vertical-align: middle;
+}
+.of-c {
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  font-family: 'Poppins-Semibold', sans-serif;
+}
+.wheat {
+  color: #e7e4d7;
 }
 
 @media (min-width: 1500px){
@@ -584,7 +606,7 @@ span.inner-circle{
     padding: 2px 5px;
   }
   .making-text-1 h3 {
-    font-size: 20px;
+    font-size: 16px;
     max-width: 100%;
     margin: 0 auto 15px;
   }
@@ -596,7 +618,7 @@ span.inner-circle{
     font-size: 20px;
   }
   .making-text-3 h3 {
-    font-size: 44px;
+    font-size: 20px;
   }
   .making-text-3 p, .making-text-4 p{
     font-size: 14px;
@@ -671,7 +693,7 @@ span.inner-circle{
     font-size: 36px;
   }
   .making-text-3 h3 {
-    font-size: 36px;
+    font-size: 20px;
   }
   .sala-text-1 h3, .sala-text-2 h2 {
     font-size: 33px;
@@ -774,9 +796,6 @@ span.inner-circle{
   .making-text-1 p, .making-text-3 p, .making-text-4 p {
     font-size: 14px;
   }
-  .sala-text-1 .inner{
-    text-align: center;
-  }
   .sala-text-3 h3 {
     font-size: 25px;
   }
@@ -791,7 +810,17 @@ span.inner-circle{
     font-size: 18px;
   }
   .banner-section{
-    display: none;
+    /*display: none;*/
+  }
+  .banner-section .banner-logo {
+    left: 4%;
+  }
+  .banner-section .banner-label {
+    right: 4%;
+    width: 50%;
+    text-align: center;
+    opacity: .9;
+    font-size: 10px;
   }
   .product-section{
     padding-top: 0;
@@ -799,9 +828,9 @@ span.inner-circle{
   .product-section .inner {
     position: relative;
     height: 100%;
-    background: url(/assets/images/product.jpg) no-repeat left center;
-    background-size: cover;
-    padding-top: 110%;
+    /*background: url(/assets/images/product.jpg) no-repeat left center;*/
+    /*background-size: cover;*/
+    /*padding-top: 110%;*/
   }
   .body-content {
     background-size: 30%;
