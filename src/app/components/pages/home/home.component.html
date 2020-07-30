@@ -23,7 +23,7 @@
       <div class="col-lg-3 col-md-5 product-section">
         <div class="inner">
           <img class="inner__banner"
-               [src]="currentCollection ? currentCollection.banner.url : '/assets/images/product.jpg'"
+               [src]="currentCollection && currentCollection.banner ? currentCollection.banner.url : '/assets/images/product.jpg'"
                alt="">
           <span class="hot-spot"
                 *ngFor="let product of products"
