@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {fromEvent, interval, Observable, timer} from "rxjs";
-import {first, map, takeWhile, throttleTime} from "rxjs/operators";
+import {first, map, takeWhile, tap, throttleTime} from "rxjs/operators";
 import {StreamApi} from "../../../shared/sdk/services/custom";
 import {Collection, LoopBackFilter, Product, Sku, Stream} from "../../../shared/sdk/models";
 
@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
     this.videoInfo$ = event.pipe(
       throttleTime(1000)
     ).subscribe(val => {
+      console.log(val)
       this.currentCollection = this.collections
         .find((collection, index, array) => {
           if (array[index + 1]) {
@@ -61,7 +62,8 @@ export class HomeComponent implements OnInit {
           }
           return val > collection.startTime;
         });
-      this.products = this.currentCollection ?
+      console.log(this.currentCollection)
+      this.products = this.currentCollection && this.currentCollection.products ?
         this.currentCollection.products
           .map(product => ({...product, description: product.description.split(' ')[0]})) : [];
     });
@@ -122,6 +124,7 @@ export class HomeComponent implements OnInit {
       if (this.currentDate < endDate) {
         this.setIsStreaming(startDate, this.currentDate);
         this.collections = this.stream.collections;
+        console.log(this.collections)
       }
     });
   }
