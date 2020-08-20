@@ -915,6 +915,35 @@ span.inner-circle{
     background: url(/assets/images/sala-bg-mobile.png) no-repeat center bottom;
     background-size: 100% auto;
   }
+  .header-bottom {
+    max-height: 76px;
+    overflow: hidden;
+  }
+  .cart-header {
+    padding: 0;
+    background: #dedbd0;
+    padding-left: 10px;
+  }
+  .icon_content {
+    padding: 15px 35px;
+    background: #f5f3eb;
+  }
+  .header-top > .container {
+    padding: 10px 0;
+  }
+  .header-top {
+    border: none;
+  }
+  .body-content {
+    background-color: #fff;
+  }
+  .col-lg-3.cart-section.h-100, .video-section, .product-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .video-section {
+    padding-top: 55px;
+  }
 }
 
 @keyframes slideUp {

@@ -2,3 +2,9 @@
   height: 58vh;
   box-sizing: content-box;
 }
+
+@media (max-width: 580px) {
+  .body-content {
+    height: auto;
+  }
+}
