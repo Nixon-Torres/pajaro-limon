@@ -1,0 +1,11 @@
+.nav-item.active {
+    font-weight: bold;
+}
+
+.navbar_menu {
+    justify-content: space-evenly;
+  }
+
+.header-top {
+    background-image: url("/assets/images/fondo-superior.png");
+}

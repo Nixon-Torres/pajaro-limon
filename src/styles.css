@@ -35,6 +35,11 @@
 html, body{
   overflow-x: hidden;
 }
+@media only screen and (max-width: 770px) {
+  html {
+    margin-top: 0;
+  }
+}
 body{
   font-family: Poppins-Light;
   background-color: #e7e4d7;
@@ -49,13 +54,17 @@ body{
   padding: 0;
 }
 .header-top{
-  border-bottom: 1px solid #c8c4b5;
+  border-bottom: 2px solid #c9beb0;
+}
+.header-top > .container {
+  width: 100%;
+  max-width: initial;
 }
 .header-bottom{
-  border-bottom: 1px solid #c8c4b5;
+  max-height: 150px;
 }
 .bottom-header-content{
-  padding: 10px 50px;
+  padding: 25px 50px;
 }
 .body-content.home{
   /*min-height: calc(100vh - 198px);*/
@@ -64,7 +73,7 @@ body{
 .body-content{
   padding: 30px 0 30px;
   position: relative;
-  background: url("/assets/images/new/flor300.png") no-repeat right bottom;
+  background: url("/assets/images/new/arbol.png") no-repeat right bottom;
 }
 .home-body-content{
   height: auto;
@@ -133,7 +142,7 @@ body{
   padding: 5px 15px;
   border-radius: 15px;
   color: #ffffff;
-  background: #7f7f7f;
+  background: #988048;
   border: 1px solid white;
   right: 20px;
   bottom: 20px;
@@ -311,7 +320,7 @@ span.inner-circle{
   width: calc(100% - 10px);
   margin-left: 5px;
   padding: 15px;
-  background: rgba(222, 219, 207, 0.95);
+  background: #e5e3d5e3;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -389,7 +398,8 @@ span.inner-circle{
   line-height: 0;
 }
 .item-wrapper input[type=radio]:checked + label{
-  background: #676456;
+  background: #988048;
+  color: #ffffff;
   transition: all ease 0.5s;
 }
 .item-wrapper label {
@@ -401,7 +411,7 @@ span.inner-circle{
   font-size: 20px;
   font-family: Poppins-Semibold;
   width: 100%;
-  background: #BA3D28;
+  background: #988048;
   color: #f7f5ea;
   padding: 15px 15px;
   border-radius: 0;
@@ -708,7 +718,7 @@ span.inner-circle{
     height: auto;
   }
   .bottom-left-logo {
-    height: 80px;
+    width: 100%;
   }
   .bottom-right-logo {
     height: 30px;
@@ -859,9 +869,6 @@ span.inner-circle{
   }
   .navbar-nav .nav-link{
     font-size: 12px;
-  }
-  .bottom-left-logo {
-    height: 55px;
   }
   .bottom-right-logo {
     height: 50px;
