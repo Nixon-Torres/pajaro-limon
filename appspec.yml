@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /tmp/colombiamoda-frontend
+    destination: /tmp/pajaro-limon-frontend
 hooks:
   ApplicationStart:
     - location: scripts/copy_client_files

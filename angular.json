@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/colombiamoda-frontend",
+            "outputPath": "dist/pajaro-limon-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "colombiamoda-frontend:build"
+            "browserTarget": "pajaro-limon-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "colombiamoda-frontend:build:production"
+              "browserTarget": "pajaro-limon-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "colombiamoda-frontend:build"
+            "browserTarget": "pajaro-limon-frontend:build"
           }
         },
         "test": {
@@ -120,15 +120,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "colombiamoda-frontend:serve"
+            "devServerTarget": "pajaro-limon-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "colombiamoda-frontend:serve:production"
+              "devServerTarget": "pajaro-limon-frontend:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "colombiamoda-frontend"
+  "defaultProject": "pajaro-limon-frontend"
 }

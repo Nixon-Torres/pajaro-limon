@@ -12,7 +12,7 @@ pipelines:
             - npm install -g @angular/cli
             - npm run build --allow-root -- --configuration=production
             - chmod +x scripts/*
-            - export DEPLOYMENT_GROUP_NAME=$DEPLOYMENT_GROUP_NAME
+            - export DEPLOYMENT_GROUP_NAME=$PRO_DEPLOYMENT_GROUP_NAME
             - zip -r /tmp/artifact.zip * # package up the application for deployment
             - python codedeploy_deploy.py # run the deployment script
     stage:
