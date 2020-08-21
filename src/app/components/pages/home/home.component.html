@@ -73,7 +73,7 @@
         <div class="inner">
           <div class="cart-header d-flex align-items-center justify-content-between" (click)="cartVisible = !cartVisible">
             <h3>LISTA DE DESEOS</h3>
-            <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">{{wishListCount}}</span></div>
+           <div class="icon_content"> <div class="cart-icon"><img src="/assets/images/heart.png"><span class="cart-counts">{{wishListCount}}</span></div> </div>
           </div>
           <div class="cart-item-collapse" [ngClass]="{'active': cartVisible}" *ngIf="cartVisible">
             <div class="cart-item-wrapper">
