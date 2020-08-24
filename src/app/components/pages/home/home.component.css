@@ -2,7 +2,7 @@
   height: 58vh;
   box-sizing: content-box;
 }
-@media (min-width: 900px) {
+@media (min-width: 1900px) {
   .body-content {
     overflow: hidden;
   }
