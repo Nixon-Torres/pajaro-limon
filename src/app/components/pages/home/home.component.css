@@ -1,7 +1,11 @@
 .body-content {
   height: 58vh;
   box-sizing: content-box;
-  overflow: hidden;
+}
+@media (min-width: 1900px) {
+  .body-content {
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 580px) {

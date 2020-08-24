@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   public wishListCount: number = 0;
   public checkout: string;
   public cartVisible = false;
-  public entireCollectionLink = 'https://www.exito.com/arkitect-beatrizcamacho';
+  public entireCollectionLink = 'https://www.exito.com/bronzini-pajarolimon';
   private locationAncestor: string = 'https://www.exito.com';
 
   constructor(
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
     if (ancestorOrigins && ancestorOrigins.length &&
       ancestorOrigins[0].indexOf('carulla') >= 0) {
       this.locationAncestor = 'https://www.carulla.com';
-      this.entireCollectionLink = 'https://www.carulla.com/arkitect-beatrizcamacho';
+      this.entireCollectionLink = 'https://www.carulla.com/bronzini-pajarolimon';
     }
   }
 
