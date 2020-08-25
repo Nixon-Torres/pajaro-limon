@@ -1,11 +1,15 @@
 .body-content {
-  height: 58vh;
+  height: 450px;
   box-sizing: content-box;
 }
 @media (min-width: 1900px) {
   .body-content {
     overflow: hidden;
   }
+}
+
+.product-section {
+  padding: 0;
 }
 
 @media (max-width: 580px) {
