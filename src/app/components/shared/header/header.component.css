@@ -1,0 +1,17 @@
+.nav-item.active {
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 991px) {
+    .ml-auto.menu-wrapper{
+        width: 40%;
+      }
+}
+
+.navbar_menu {
+    justify-content: space-evenly;
+  }
+
+.header-top {
+    background-image: url("/assets/images/fondo-superior.png");
+}
