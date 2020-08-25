@@ -35,7 +35,7 @@
             <div class="product-option" [formGroup]="form">
               <h3 class="option-title">{{currentProduct.description}}<br>
                 <small>{{currentProduct.brand}}</small></h3>
-              <h2 class="option-price mb-0">${{currentProduct.price}}</h2>
+              <h2 class="option-price mb-0">{{currentProduct.price  | currency: 'COP': 'symbol-narrow':'1.0-0': 'es-CO' }}</h2>
               <p class="variant-title">Elige tu talla</p>
               <div class="variant-item-wrapper size d-flex justify-content-between">
                 <div class="text-center item-wrapper"
