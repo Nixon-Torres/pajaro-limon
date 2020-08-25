@@ -1,3 +1,3 @@
 #!/bin/bash
-mkdir -p /home/ubuntu/pajaro-limon-frontend/client
+mkdir -p /home/ubuntu/pajaro-limon-backend/client
 cp -r /tmp/pajaro-limon-frontend/dist/pajaro-limon-frontend/* /home/ubuntu/pajaro-limon-backend/client/
