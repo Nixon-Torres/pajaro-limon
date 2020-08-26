@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import videojs from 'video.js';
 import {Observable} from "rxjs";
+import {GoogleTagManagerService} from 'angular-google-tag-manager';
 
 @Component({
   selector: 'app-vjs-player',
@@ -35,13 +36,17 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
     }[],
   };
   player: videojs.Player;
+  @Input() public gtm: any;
 
-  constructor() { }
+  constructor(
+    private gtmService: GoogleTagManagerService
+  ) { }
 
   ngOnInit() {
     // instantiate Video.js
     const global = this;
     this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
+      global.pushDataLayers(global);
       const playTime$ = new Observable<number>(subscriber => {
         this.on('timeupdate', function () {
           subscriber.next(this.getCache().currentTime);
@@ -56,6 +61,14 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
       global.videoInfo.emit(playTime$);
       global.ready.emit({action: 'ready', cache: this.getCache()});
     });
+  }
+
+  private pushDataLayers(global) {
+    if (global.gtm) {
+      if (global.gtm['event'] === 'eventPlay') {
+        global.gtmService.pushTag(global.gtm);
+      }
+    }
   }
 
   ngOnDestroy() {
