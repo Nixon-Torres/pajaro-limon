@@ -4,6 +4,7 @@ import {fromEvent, interval, Observable, timer} from "rxjs";
 import {first, map, takeWhile, throttleTime} from "rxjs/operators";
 import {StreamApi} from "../../../shared/sdk/services/custom";
 import {Collection, LoopBackFilter, Product, Sku, Stream} from "../../../shared/sdk/models";
+import {GoogleTagManagerService} from 'angular-google-tag-manager';
 
 @Component({
   selector: 'app-home',
@@ -36,10 +37,12 @@ export class HomeComponent implements OnInit {
   public cartVisible = false;
   public entireCollectionLink = 'https://www.exito.com/bronzini-pajarolimon';
   private locationAncestor: string = 'https://www.exito.com';
+  public gtm: unknown;
 
   constructor(
     private formBuilder: FormBuilder,
     private streamApi: StreamApi,
+    private gtmService: GoogleTagManagerService
   ) {
   }
 
@@ -57,6 +60,13 @@ export class HomeComponent implements OnInit {
       this.locationAncestor = 'https://www.carulla.com';
       this.entireCollectionLink = 'https://www.carulla.com/bronzini-pajarolimon';
     }
+    this.gtm = {
+      eventCategory: 'PLTransmisionPasarela',
+      eventAction: 'play',
+      eventLabel: 'PLTransmisionPasarela',
+      eventValue: '',
+      event: 'eventPlay',
+    };
   }
 
   public getVideoInfo(event) {
@@ -316,5 +326,16 @@ export class HomeComponent implements OnInit {
         products += `sku=${product.skus[0].plu}&qty=1&seller=1&`;
       });
     return BASE_URL+products+END_URL;
+  }
+
+  tagGoogle(category: any) {
+    const gtmTag = {
+      eventCategory: category,
+      eventAction: 'click',
+      eventLabel: category,
+      eventValue: '',
+      event: 'eventClick',
+    };
+    this.gtmService.pushTag(gtmTag);
   }
 }
