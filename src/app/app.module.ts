@@ -17,7 +17,10 @@ import '@angular/common/locales/global/es-CO';
     AppRoutingModule,
     SDKBrowserModule.forRoot(),
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'es-CO'}],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'es-CO'},
+    {provide: 'googleTagManagerId', useValue: 'GTM-WWVNHR3'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
