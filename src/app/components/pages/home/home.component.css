@@ -12,8 +12,16 @@
   padding: 0;
 }
 
+.banner-section {
+  margin-top: 1rem;
+}
+
 @media (max-width: 580px) {
   .body-content {
     height: auto;
+    padding-top: 0;
+  }
+  .banner-section {
+    margin-top: 0;
   }
 }
