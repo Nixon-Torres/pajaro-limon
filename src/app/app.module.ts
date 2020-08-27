@@ -19,7 +19,7 @@ import '@angular/common/locales/global/es-CO';
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'es-CO'},
-    {provide: 'googleTagManagerId', useValue: 'GTM-WWVNHR3'}
+    {provide: 'googleTagManagerId', useValue: 'GTM-WSKX6RZ'}
   ],
   bootstrap: [AppComponent]
 })
