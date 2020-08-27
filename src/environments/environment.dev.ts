@@ -5,7 +5,7 @@
   export const environment = {
     production: false,
     serverUrl: '/api',
-    URL_API: 'https://stg.pajarolimon.qdata.io',
+    URL_API: 'https://stg-pajarolimon.qdata.io',
   };
 
 /*

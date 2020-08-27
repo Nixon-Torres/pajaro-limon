@@ -9,13 +9,14 @@
                             [options]="videoOptions"
                             (videoInfo)="getVideoInfo($event)"
                             (ready)="videoReady($event)"
+                            [gtm]="gtm"
             ></app-vjs-player>
           </div>
           <div class="banner-section">
             <img src="/assets/images/stage-banner-2.png" class="w-100">
             <img src="/assets/images/logo.png" class="banner-logo">
             <a [href]=entireCollectionLink
-               (click)="redirectToCheckout()"
+               (click)="redirectToCheckout(); tagGoogle('PLColeccionCompleta');"
                target="_parent" class="banner-label">MIRA LA COLECCIÓN COMPLETA</a>
           </div>
         </div>
@@ -58,7 +59,7 @@
               </div>
             </div>
             <button class="add-cart-btn btn" [class.active]="form.valid"
-                    (click)="addProduct()" [disabled]="!form.valid">
+                    (click)="addProduct(); tagGoogle('PLAgregarLista');" [disabled]="!form.valid">
               AGREGAR A LISTA <img src="/assets/images/heart-outline.png">
               <img src="/assets/images/heart-white.png" class="active">
             </button>
@@ -91,7 +92,7 @@
           <div *ngIf="cartVisible" class="compare-btn">
             <p><i>La disponibilidad se validará en exito.com</i></p>
             <a class="btn" [href]="checkout"
-               [class.disabled]="wishListCount <= 0" target="_blank">COMPRAR</a>
+               [class.disabled]="wishListCount <= 0" target="_blank" (click)="tagGoogle('PLComprar');">COMPRAR</a>
           </div>
         </div>
       </div>

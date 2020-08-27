@@ -5,13 +5,13 @@
         <div class="ml-auto menu-wrapper">
           <ul class="navbar-nav navbar_menu">
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/home">ESCENARIO</a>
+              <a class="nav-link" routerLink="/home" (click)="tagGoogle('PLEscenario')">ESCENARIO</a>
             </li>
             <!-- <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/making">INSPIRACIÓN</a>
+              <a class="nav-link" routerLink="/making" (click)="tagGoogle('PLInspiracion')">INSPIRACIÓN</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/room">SALA DE CONOCIMIENTO</a>
+              <a class="nav-link" routerLink="/room" (click)="tagGoogle('PLSala')">SALA DE CONOCIMIENTO</a>
             </li> -->
           </ul>
         </div>
@@ -21,7 +21,7 @@
   <div class="header-bottom">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center bottom-header-content">
-        <a class="navbar-brand" routerLink="/home">
+        <a class="navbar-brand" routerLink="/home" (click)="tagGoogle('PLLogo')">
           <img src="assets/images/header-logo.png" class="bottom-left-logo">
         </a>
       </div>
