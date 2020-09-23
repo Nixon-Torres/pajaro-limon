@@ -29,7 +29,7 @@ export class InspirationComponent implements OnInit {
     zip(main$, first$, second$)
       .pipe(
         catchError( (err: AjaxError) => {
-          return of([''])
+          return of(['']);
         }),
         map((resp: unknown) => ({main: resp[0][0], first: resp[1][0], second: resp[2][0]})),
       ).subscribe((resp) => {
@@ -40,20 +40,20 @@ export class InspirationComponent implements OnInit {
   }
 
   setFilter(key): LoopBackFilter {
-    return {where: {key}}
+    return {where: {key}};
   }
 
   private videoConfig(video: Media) {
-    return {
-      autoplay: false,
-      controls: true,
-      preload: false,
-      controlBar: {
-        pictureInPictureToggle: false,
-      },
-      sources: [
-        {src: video.url, type: video.type}
-      ]
-    }
+    return video ? ( {
+        autoplay: false,
+        controls: true,
+        preload: false,
+        controlBar: {
+          pictureInPictureToggle: false,
+        },
+        sources: [
+          {src: video.url, type: video.type}
+        ]
+      }) : null;
   }
 }
