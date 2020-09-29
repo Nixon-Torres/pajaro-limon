@@ -1,0 +1,415 @@
+.body-content.body-vinos {
+    background-image: url("../../../../assets/images/expo-vinos/vinos-bg.jpg");
+    background-size: cover;
+}
+
+.body-vinos .video-section .inner .embed-responsive {
+    height: 100%;
+}
+
+.body-vinos .product-section .add-cart-btn.btn {
+    font-size: 0.94em;
+    padding: 5px;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.body-vinos .inner {
+    background-color: transparent;
+    height: auto;
+}
+
+.body-vinos .video-section .inner {
+    height: auto;
+}
+
+.vino_title {
+    color: #bf8443;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+.vino_title span {
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.filter_product {
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter_product .search_product {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border: solid 2px #fff;
+    color: #fff;
+    background-image: url("../../../../assets/images/expo-vinos/iconos/lupa.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.filter_product p{
+    text-align: center;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #bc8143;
+    margin: 10px 0;
+}
+.filter_product input, select, button {
+    width: 100%;
+    margin: 5px 0;
+    border: none;
+    background-color: #bc8143;
+    color: #1d082a;
+}
+@media only screen and (min-width: 1600px) {
+    .filter_product input, select, button {
+        margin: 12px 0;
+    }
+}
+.filter_product input, select, button:focus {
+    outline: none;
+}
+
+.filter_product select {
+    background-color: #b9babb;
+    padding: 4px 0;
+    padding-left: 27px;
+    color: #7d7d7d;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    background-size: 25px;
+    background-position: left;
+}
+.filter_product select:nth-child(1) {
+    background-image: url("../../../../assets/images/expo-vinos/iconos/copa.png");
+}
+.filter_product select:nth-child(2) {
+    background-image: url("../../../../assets/images/expo-vinos/iconos/geolocalizador.png");
+}
+.filter_product select:nth-child(3) {
+    background-image: url("../../../../assets/images/expo-vinos/iconos/marca.png");
+}
+.filter_product select:nth-child(4) {
+    background-image: url("../../../../assets/images/expo-vinos/iconos/botella-vino.png");
+}
+
+.filter_product button {
+    padding: 5px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+    background-color: #bc8143;
+    color: #0f002b;
+    cursor: pointer;
+}
+
+.filter_product .compare-btn a{
+    padding: 5px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+    background-color: #1d082a;
+    border: solid 2px #bc8143;
+    color: #bc8143;
+    height: auto;
+    font-size: 1em;
+    text-transform: uppercase;
+    display: flex;
+}
+.filter_product .compare-btn a img {
+    width: 15px;
+    margin-left: 5px;
+}
+
+.body-vinos .second_banner, .third_banner {
+    margin-top: 2em;
+}
+
+.body-vinos .product-section .inner {
+    height: 86%;
+}
+
+.body-vinos .product-section .inner .carousel, .carousel-inner, .carousel-item, img {
+    height: 100%;
+}
+
+.carousel_items {
+    text-align: center;
+    color: #bc8143;
+    font-size: 0.8em;
+    margin-bottom: 0;
+    margin-top: 2em;
+}
+
+.body-vinos .option-title, .variant-title {
+    font-size: 1em;
+    color: #1f062d;
+    font-weight: bold;
+    font-family: Poppins-Semibold;
+}
+.body-vinos .option-title, .variant-title span{
+    font-size: 0.8em;
+    color: #969090;
+    font-weight: normal;
+    font-family: Poppins-Light;
+}
+.body-vinos .option-title {
+    font-size: 1.2em;
+    color: #bf8443;
+    font-weight: bold;
+}
+
+.body-vinos .item-wrapper {
+    width: auto;
+    margin: 0;
+    border: solid 1px #bf8443;
+    height: 2.7em;
+}
+.body-vinos .product-option {
+    width: 100%;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.body-vinos .cart-item-collapse {
+    background-color: #1f082c;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.body-vinos .cart-item-collapse .cart-item-title {
+    font-size: 1.2em;
+    color: #b17848;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.body-vinos .cart-item-collapse .cart-item-title img {
+    width: 15px;
+}
+
+.body-vinos .cart-item-wrapper {
+    padding: 5px;
+}
+
+.item-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #9d93a3;
+    margin: 10px 0;
+    padding-bottom: 7px;
+}
+
+.item-select__product {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.item-select__product img {
+    width: 30px;
+    height: auto;
+}
+.item-select__product p {
+    font-size: 0.7em;
+    color: #ffffff;
+    margin: 0;
+    margin-left: 7px;
+    text-align: initial;
+}
+
+.item-select__quantity {
+    width: 30%;
+}
+
+.item-select__quantity input {
+    background-color: transparent;
+    color: #ffffff;
+    border: solid 1px #b17848;
+}
+
+.item-select__quantity input:focus {
+    outline: none;
+}
+
+.item-select__quantity .input-group {
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.item-select__quantity p {
+    font-size: 0.7em;
+    text-align: center;
+    color: #b17848;
+    margin: 0;
+}
+
+.delete_product {
+    width: 15px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    margin-left: -18px;
+    cursor: pointer;
+} 
+
+.total_pay {
+    display: flex;
+    border: solid 1px #b17848;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    color: #b17848;
+    border-radius: 5px;
+}
+.total_pay div:last-child {
+    border-left: solid 1px;
+    padding-left: 15px;
+}
+
+.total_pay p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.button_pay button{
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 29px;
+}
+
+.wish_list {
+    max-height: 121px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0 5px;
+}
+.wish_list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wish_list::-webkit-scrollbar-thumb {
+    background: #b17848;
+}
+
+.wish_list::-webkit-scrollbar-track {
+    background: #888; 
+}
+
+input.quantity_button[type="button"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  .input-group .button-minus,
+  .input-group .button-plus {
+    font-weight: bold;
+    height: 20px;
+    padding: 0;
+    width: 20px;
+  }
+  
+  .input-group .quantity-field {
+    position: relative;
+    height: 20px;
+    text-align: center;
+    width: 35px;
+    font-size: 13px;
+  }
+  
+  .button-plus {
+    left: -13px;
+  }
+  
+  input.quantity_total[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+  }
+
+
+
+@media only screen and (max-width: 1024px) {
+    .body-vinos .cart-item-collapse .cart-item-title {
+       width: 100%;
+       font-size: 1em;
+    }
+    .filter_product .title {
+        font-size: 1em;  
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .body-vinos .cart-section {
+        position: initial;
+        height: auto !important;
+    }
+    .body-vinos .cart-item-collapse {
+        visibility: initial;
+        opacity: 1;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .wish_list {
+        max-height: 300px;
+    }
+    .delete_product {
+        margin-left: 2.5em; 
+    }
+    .item-select__quantity .input-group {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .filter_product {
+        padding: 0 10px;
+    }
+    .body-vinos .video-section .inner {
+        padding: 0 10px;
+    }
+    .vino_title {
+        font-size: 1.2em;
+    }
+
+    .body-vinos .video-section {
+        order: -1;
+    }
+    .body-vinos .cart-section {
+       margin-top: 20px;
+    }
+    .carousel_items {
+        font-size: 1.4em;
+        margin-top: 0;
+    }
+    .body-vinos .banner-section {
+        margin: 15px 0;
+    }
+
+    .body-vinos .product-section {
+        min-height: 370px !important;
+    }
+
+    .body-vinos .product-section .carousel-inner {
+        max-height: 483px;
+    }
+    .delete_product {
+        margin-left: -15px; 
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .body-vinos .product-section .carousel-inner {
+        max-height: 370px;
+    }
+}
