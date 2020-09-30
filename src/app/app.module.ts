@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import {SDKBrowserModule} from "./shared/sdk";
 import '@angular/common/locales/global/es-CO';
+import { VinosDialogsComponent } from './components/pages/vinos-dialogs/vinos-dialogs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    VinosDialogsComponent,
   ],
   imports: [
     BrowserModule,
