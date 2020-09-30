@@ -337,6 +337,83 @@ input.quantity_button[type="button"] {
 
 
 
+.diary-container {
+    padding-top: 3em;
+    background-color: #261930;
+}
+
+.diary-container .diary_title {
+    text-align: center;
+    color: #bf8443;
+    font-family: Poppins-bold;
+}
+
+.diary-container .diary_title > span {
+    color: #ffffff;
+    font-family: Poppins-Light;
+    font-weight: normal;
+}
+
+.diary-container__calendar {
+    width: 70%;
+    margin: auto;
+}
+
+.diary-container__calendar .diary_date {
+    text-align: center;
+    color: #bf8443;
+    font-family: Poppins-bold;
+}
+
+.diary-container__calendar .date_filter {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.diary-container__calendar .date_filter > div {
+    background-color: #bf8443;
+    padding: 3px 0;
+    width: 16%;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+    border: solid 2px #bf8443;
+}
+
+.diary-container__calendar .date_filter .active {
+    background-color: #27182f;
+}
+
+.diary-container__calendar .date_filter > div p {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.diary-container__calendar .filter_content {
+    border: solid 2px #bf8443;
+    padding: 5px 20px;
+}
+
+.diary-container__calendar .filter_content > div {
+    display: flex;
+    color: #ffffff
+}
+
+.diary-container__calendar .filter_content .calendar_title-container {
+    width: 90%;
+}
+
+.diary-container__calendar .filter_content .calendar_title {
+    margin-left: 5%;
+}
+
+.diary-container__calendar .filter_content .calendar_title p {
+    margin-left: 5%;
+}
+
+.diary-container__calendar .filter_content .calendar_title span {
+    color: #bf8443;
+}
+
 @media only screen and (max-width: 1024px) {
     .body-vinos .cart-item-collapse .cart-item-title {
        width: 100%;
@@ -344,6 +421,9 @@ input.quantity_button[type="button"] {
     }
     .filter_product .title {
         font-size: 1em;  
+    }
+    .diary-container {
+        display: none;
     }
 }
 

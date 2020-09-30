@@ -28,6 +28,10 @@
     text-align: center;
 }
 
+.modal_logo .expo_logo {
+    width: 25%;
+}
+
 .modal .modal_text {
     height: 100%;
     display: flex;

@@ -11,7 +11,7 @@
                               (ready)="videoReady($event)"
                               [gtm]="gtm"
               ></app-vjs-player> -->
-                        <iframe src="https://www.youtube.com/embed/UmRkc8F40Ik" frameborder="0"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dwDns8x3Jb4" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
@@ -84,7 +84,8 @@
 
                         <!-- Wish list container -->
                         <div class="cart-item-collapse" *ngIf="!wishList">
-                            <h1 class="cart-item-title">¡Tu lista de deseos! <img src="/assets/images/heart-red.png"></h1>
+                            <h1 class="cart-item-title">¡Tu lista de deseos! <img src="/assets/images/heart-red.png">
+                            </h1>
                             <div class="cart-item-wrapper">
 
                                 <div class="wish_list">
@@ -124,7 +125,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="total_pay">
                                     <div>
                                         <p>TOTAL</p>
@@ -161,7 +162,8 @@
                                 </select>
                                 <button>Buscar</button>
                                 <div class="compare-btn">
-                                    <a class="btn" (click)="wishList = !wishList">¡tu lista de deseos! <img src="/assets/images/heart-red.png"></a>
+                                    <a class="btn" (click)="wishList = !wishList">¡tu lista de deseos! <img
+                                            src="/assets/images/heart-red.png"></a>
                                 </div>
                             </form>
                         </div>
@@ -178,7 +180,8 @@
         <div class="row second_banner">
             <div class="col-lg-6">
                 <div class="banner-section">
-                    <div id="bannersControls" class="carousel slide carousel_banner" data-ride="true">
+                    <div id="bannersControls" class="carousel slide carousel_banner" data-ride="carousel"
+                        data-interval="2000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="/assets/images/expo-vinos/banner2.png"
@@ -220,3 +223,51 @@
     </div>
 </section>
 
+<section>
+    <div class="diary-container">
+        <h3 class="diary_title">Agenda de <span>conocimiento</span></h3>
+        <div class="diary-container__calendar">
+            <h3 class="diary_date">OCTUBRE</h3>
+            <div>
+                <div class="date_filter">
+                    <div class="active">
+                        <p>octubre 22</p>
+                    </div>
+                    <div>
+                        <p>octubre 23</p>
+                    </div>
+                    <div>
+                        <p>octubre 24</p>
+                    </div>
+                    <div>
+                        <p>octubre 25</p>
+                    </div>
+                    <div>
+                        <p>noviembre 26</p>
+                    </div>
+                    <div>
+                        <p>noviembre 27</p>
+                    </div>
+                </div>
+                <div class="filter_content">
+                    <div>
+                        <div>
+                            <p class="calendar_hours">11:00 A.M</p>
+                        </div>
+                        <div class="calendar_title-container">
+                            <p class="calendar_title">Show gastronómico - <span>Por: xxxxx.xxxxxx</span></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="calendar_hours">3:00 P.M</p>
+                        </div>
+                        <div class="calendar_title-container">
+                            <p class="calendar_title">Programación - <span>Escuela de cocina</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
