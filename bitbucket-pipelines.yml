@@ -28,6 +28,7 @@ pipelines:
             - chmod +x scripts/*
             - export DEPLOYMENT_GROUP_NAME=$STAGE_DEPLOYMENT_GROUP_NAME
             - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID1
-            - export AWS_SECRET_ACCESS_KEY= $AWS_SECRET_ACCESS_KEY1
+            - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY1
+            - export S3_BUCKET=$S3_BUCKET1
             - zip -r /tmp/artifact.zip * # package up the application for deployment
             - python codedeploy_deploy.py # run the deployment script
